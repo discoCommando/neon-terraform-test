@@ -1,0 +1,5 @@
+.direnv
+.envrc.private
+
+**/.terraform*
+*.tfstate*
