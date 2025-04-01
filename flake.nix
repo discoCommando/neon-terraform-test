@@ -21,6 +21,14 @@
 
       perSystem = { pkgs, system, ... }:
         {
+          _module.args.pkgs = import nixpkgs {
+            inherit system;
+            config = {
+              # This is needed to get Terraform 1.11, due to the license change
+              allowUnfree = true;
+            };
+          };
+
           devshells.default = {
             name = "neon-terraform-test";
 
